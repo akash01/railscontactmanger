@@ -14,3 +14,7 @@
 body {
 	padding: 70px;
 }
+
+th, td {
+	text-align: center !important;
+}
