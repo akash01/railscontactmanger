@@ -23,23 +23,22 @@
 	                <a href="/" class="navbar-brand">Contacts</a>
 	            </div> 
 	            <div class="collapse navbar-collapse" id="collapse">
-	                <ul class="nav navbar-nav">
+	                <ul class="nav navbar-nav pull-right">
 	                    <li><a href="#">Home</a></li>
 	                    <li><a href="#">About</a></li>
 	                </ul>
 	            </div>
 	        </nav> 
 	    </div> <!-- navigation -->
-	
-    <header class="row">
-    	<div class="col col-sm-12">
-        	<img src="/assets/animals.jpg" alt="" id="logo" class="img-responsive center-block">
-        </div>
-    </header> <!-- header -->
+	    <header class="row">
+	    	<div class="col col-sm-12">
+	        	<img src="/assets/animals.jpg" alt="" id="logo" class="img-responsive center-block">
+	        </div>
+	    </header> <!-- header -->
     
-    <div id="main">
-		<%= yield %>
-	</div>
+	    <div id="main">
+			<%= yield %>
+		</div>
 	
 	</section> <!-- container -->
 
@@ -49,5 +48,20 @@
 			<p class="navbar-text pull-right">Created by <a href="#" class="navbar-link">Mukesh</a></p>
 	  </div>
 	</nav>
+	
+	<% flash.each do |name,message|%>
+		<script>
+		  var msg="<%= message %>";
+		  toastr.info(msg)
+		</script>
+	<% end %>
+	
+	<% @contact.errors.full_messages.each do |error|%>
+		<script>
+		  var msg="<%= error %>";
+		  toastr.error(msg)
+		</script>
+	<% end %>
+
   </body>
 </html>
