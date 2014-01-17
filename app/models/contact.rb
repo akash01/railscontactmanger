@@ -8,6 +8,8 @@ class Contact < ActiveRecord::Base
 	validates :last_name, :presence => true,
 						:length => { :within => 2..25 }
 
-	
+	validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+
+	validates :phone_number, :numericality => true
 
 end
